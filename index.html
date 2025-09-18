@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page metadata and linked resources -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Focus To-Do with Due Dates</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="todo2.jpg">
+
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- External JavaScript file -->
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+      <div class="brand">
+        <!-- Logo placeholder -->
+        <div class="logo"></div>
+        <h1>Focus To-Do</h1>
+      </div>
+      <!-- Theme toggle button -->
+      <button id="themeToggle" class="icon-btn">🌓</button>
+    </div>
+    <!-- =============== END HEADER =============== -->
+
+    <div class="wrap">
+      <!-- Add new task form -->
+      <form id="form" class="add-row" autocomplete="off">
+        <input id="input" class="input" type="text" placeholder="What to do?" required />
+        <input id="date" class="date-input" type="date" />
+        <button class="add-btn">Add</button>
+      </form>
+
+      <!-- Filters and item counter -->
+      <div class="controls">
+        <div class="filters">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="active">Active</button>
+          <button class="pill" data-filter="completed">Completed</button>
+          <button class="pill" data-filter="today">Today</button>
+          <button class="pill" data-filter="upcoming">Upcoming</button>
+        </div>
+        <div class="minor" id="count">0 items</div>
+      </div>
+
+      <!-- Task list container -->
+      <ul id="list" class="list"></ul>
+
+      <!-- ================= FOOTER ================= -->
+      <div class="controls">
+        <div class="minor">Tip: double-click a task to edit.</div>
+        <button id="clearDone" class="pill">Clear completed</button>
+      </div>
+
+      <!-- Empty list message -->
+      <div id="empty" class="empty" hidden>
+        Your list is empty. Add your first task! 🎯
+      </div>
+      <!-- =============== END FOOTER =============== -->
+    </div>
+  </div>
+</body>
+</html>

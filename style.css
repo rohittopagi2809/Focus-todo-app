@@ -1,0 +1,207 @@
+/* CSS Variables for theming */
+:root {
+  --bg: #0f1226;
+  --bg-soft: rgba(255,255,255,0.08);
+  --card: rgba(255,255,255,0.12);
+  --text: #e9ecf1;
+  --muted: #b9c0cf;
+  --accent: #7c6cff;
+  --danger: #ff6b6b;
+  --ring: rgba(124,108,255,0.45);
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+/* Light theme overrides */
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --bg-soft: rgba(0,0,0,0.04);
+  --card: #ffffff;
+  --text: #16181d;
+  --muted: #586174;
+  --accent: #6a5cff;
+  --danger: #e05252;
+  --ring: rgba(106,92,255,0.35);
+  --shadow: 0 10px 25px rgba(16,24,40,0.12);
+}
+
+/* Basic page setup */
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, Inter, Arial;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% -10%, #4a3cff44, transparent),
+              radial-gradient(800px 600px at 110% 10%, #16b5ea35, transparent),
+              linear-gradient(180deg, var(--bg) 0%, var(--bg) 100%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* Main app container */
+.app {
+  width: min(720px, 100%);
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--bg-soft);
+}
+
+/* Top bar with brand and theme toggle */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  gap: 12px;
+  border-bottom: 1px solid var(--bg-soft);
+}
+
+/* Brand section */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: conic-gradient(from 210deg, var(--accent), #5ee0ff, var(--accent));
+  box-shadow: 0 8px 18px var(--ring);
+}
+h1 {
+  font-size: 20px;
+  margin: 0;
+}
+/* Icon button for theme toggle */
+.icon-btn {
+  border: 1px solid var(--bg-soft);
+  background: #0000;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+/* Main content wrapper */
+.wrap {
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Add new task form */
+.add-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+}
+.input, .date-input {
+  background: #0000;
+  border: 1.5px solid var(--bg-soft);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 14px;
+  outline: none;
+}
+.date-input {
+  font-size: 14px;
+}
+.add-btn {
+  background: var(--accent);
+  color: white;
+  border: 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Controls section with filters and count */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pill {
+  border: 1px solid var(--bg-soft);
+  background: #0000;
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.pill.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+.minor {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Todo list */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--bg-soft);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+.completed .text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.due {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+.check input {
+  width: 20px;
+  height: 20px;
+}
+.del {
+  border: 1px solid var(--bg-soft);
+  background: none;
+  color: var(--danger);
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Empty state message */
+.empty {
+  text-align: center;
+  padding: 32px;
+  border: 1px dashed var(--bg-soft);
+  border-radius: 14px;
+  color: var(--muted);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 520px) {
+  .add-row {
+    grid-template-columns: 1fr;
+  }
+}
